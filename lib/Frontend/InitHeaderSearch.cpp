@@ -756,6 +756,12 @@ AddDefaultCPlusPlusIncludePaths(const llvm::Triple &triple) {
                                 "x86_64-redhat-linux", "32", "", triple);
     AddGnuCPlusPlusIncludePaths("/usr/include/c++/4.4.1",
                                 "i586-redhat-linux","", "", triple);
+    // CentOS5(gcc44)
+#if defined(__linux__) && (defined(__clang__) || (__GNUC__ == 4 && __GNUC_MINOR__ == 4))
+    AddGnuCPlusPlusIncludePaths("/usr/include/c++/4.4.0",
+                                "x86_64-redhat-linux6E", "32", "", triple);
+#endif
+
     // Fedora 10
     AddGnuCPlusPlusIncludePaths("/usr/include/c++/4.3.2",
                                 "x86_64-redhat-linux", "32", "", triple);

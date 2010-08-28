@@ -2233,6 +2233,8 @@ void gcc::Common::ConstructJob(Compilation &C, const JobAction &JA,
 #ifdef IS_CYGWIN15
     // FIXME: Detect the version of Cygwin at runtime?
     GCCName = "g++-4";
+#elif defined(__linux__) && (defined(__clang__) || (__GNUC__ == 4 && __GNUC_MINOR__ == 4))
+    GCCName = "g++44";  // CentOS5
 #else
     GCCName = "g++";
 #endif
