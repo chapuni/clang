@@ -556,6 +556,7 @@ void InitHeaderSearch::AddDefaultCIncludePaths(const llvm::Triple &triple,
     if (triple.getArch() == llvm::Triple::x86_64)
       AddPath("c:/mingw/x86_64-w64-mingw32/include",
               System, true, false, false);
+    AddPath("c:/msysgit/mingw/include", System, true, false, false);
     AddPath("/mingw/include", System, true, false, false);
     AddPath("c:/mingw/include", System, true, false, false);
     break;
@@ -652,8 +653,10 @@ AddDefaultCPlusPlusIncludePaths(const llvm::Triple &triple) {
     // Try gcc 4.5.0
     AddMinGWCPlusPlusIncludePaths("c:/MinGW/lib/gcc", "mingw32", "4.5.0");
     // Try gcc 4.4.0
+    AddMinGWCPlusPlusIncludePaths("c:/msysgit/MinGW/lib/gcc", "mingw32", "4.4.0");
     AddMinGWCPlusPlusIncludePaths("c:/MinGW/lib/gcc", "mingw32", "4.4.0");
     // Try gcc 4.3.0
+    AddMinGWCPlusPlusIncludePaths("c:/msysgit/MinGW/lib/gcc", "mingw32", "4.3.0");
     AddMinGWCPlusPlusIncludePaths("c:/MinGW/lib/gcc", "mingw32", "4.3.0");
     break;
   case llvm::Triple::DragonFly:
