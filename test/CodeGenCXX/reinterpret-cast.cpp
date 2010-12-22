@@ -1,4 +1,5 @@
 // RUN: %clang_cc1 -emit-llvm -o - %s -std=c++0x
+// REQUIRES: notLLP64
 void *f1(unsigned long l) {
   return reinterpret_cast<void *>(l);
 }

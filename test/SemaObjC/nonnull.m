@@ -1,6 +1,7 @@
 #include "nonnull.h"
 
 // RUN: %clang_cc1 -fblocks -fsyntax-only -verify %s
+// REQUIRES: notLLP64
 
 @class NSObject;
 

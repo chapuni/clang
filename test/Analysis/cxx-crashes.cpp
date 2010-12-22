@@ -1,4 +1,5 @@
 // RUN: %clang_cc1 -analyze -analyzer-checker=core -verify %s
+// REQUIRES: notLLP64
 
 int f1(char *dst) {
   char *p = dst + 4;

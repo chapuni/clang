@@ -1,4 +1,5 @@
 // RUN: %clang_cc1 -Wreturn-type %s -emit-llvm-only
+// REQUIRES: notLLP64
 
 void test1(int x) {
 switch (x) {

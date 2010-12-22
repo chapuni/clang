@@ -1,4 +1,5 @@
 // RUN: %clang_cc1 -fsyntax-only -verify -pedantic %s
+// REQUIRES: notLLP64
 
 struct foo { int a, b; };
 

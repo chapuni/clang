@@ -1,4 +1,5 @@
 // RUN: %clang_cc1 -fsyntax-only -verify %s
+// REQUIRES: notLLP64
 
 struct A {};
 
