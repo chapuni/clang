@@ -49,6 +49,10 @@ if( CMAKE_SOURCE_DIR STREQUAL CMAKE_CURRENT_SOURCE_DIR )
   set( CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib )
 
   set( CLANG_BUILT_STANDALONE 1 )
+
+  # Add dummy target
+  add_custom_target(intrinsics_gen)
+
 endif()
 
 set(CLANG_RESOURCE_DIR "" CACHE STRING
