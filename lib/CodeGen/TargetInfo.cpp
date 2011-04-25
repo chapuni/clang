@@ -2115,6 +2115,12 @@ ABIArgInfo WinX86_64ABIInfo::classify(QualType Ty) const {
 
   uint64_t Size = getContext().getTypeSize(Ty);
 
+  // x86_fp80 should be passed indirectly.
+  // FIXME: LLVM X86-64 backend should handle.
+  const BuiltinType *BT = Ty->getAs<BuiltinType>();
+  if (BT && BT->getKind() == BuiltinType::LongDouble)
+    return ABIArgInfo::getIndirect(0, /*ByVal=*/false);
+
   if (const RecordType *RT = Ty->getAs<RecordType>()) {
     if (hasNonTrivialDestructorOrCopyConstructor(RT) ||
         RT->getDecl()->hasFlexibleArrayMember())
